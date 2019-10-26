@@ -1,0 +1,29 @@
+body {
+    // font-family: "Lato", sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    color: $color-grey-dark;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a:link,
+a:visited {
+    text-decoration: none;
+}
+
+
+// .headingPrimary {
+//     display: inline-block;
+//     font-size: 3rem;
+// }
+
+
+
+// .paragraph {
+//     font-size: $default-font-size;
+
+//     &:not(:last-child) {
+//         margin-bottom: 3rem;
+//     }
+// }
