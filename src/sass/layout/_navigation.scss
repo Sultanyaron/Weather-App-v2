@@ -1,0 +1,49 @@
+.navigation {
+    background-color: rgba($color-grey-light-2, 1) ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $color-primary;
+    position: relative;
+
+    &__list {
+        display: flex;
+    }
+    
+    &__link {
+        transition: all .2s;
+        color: $color-primary-light;
+    }
+
+    &__item {
+        font-size: 2.5rem;
+        font-weight: 500;
+        margin-right: 2.5rem;
+        padding: 1rem 2rem;
+        transition: all .2s;
+        color: yellow;
+        cursor: pointer;
+
+        &--active {
+            color: $color-primary-dark;
+            font-weight: bold;
+            text-shadow: .2rem .5rem rgba($color-grey-dark-2, .1);
+            border-bottom: 2px solid $color-primary-dark;
+        }
+        
+        &:hover {
+            transform: translateY(-.2rem);
+        }
+
+        &:active {
+            transform: translateY(-.1rem);
+        }
+    }
+
+
+
+    &__settings {
+        display: flex;
+        padding: 1.5rem 3rem;
+    }
+}

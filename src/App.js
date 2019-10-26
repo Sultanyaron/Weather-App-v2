@@ -1,22 +1,28 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
 import Home from './containers/Home/Home';
+import Layout from './hoc/Layout';
+
+const Favorites = React.lazy(() => {
+    return import('./containers/Favorites/Favorites');
+});
+
 
 const App = props => {
-
-
     let routes = (
         <Switch>
-            <Route path='/favorites' />
-            <Route path='/' redner={() =>  <Home {...props} />} />
-            <Redirect to='/' />
+            <Route path="/favorites" component={Favorites}  />
+            <Route path="/" component={Home} />
+            <Redirect to="/" />
         </Switch>
     ); 
 
     return (
         <div className="App">
-            123
+            <Layout>
+                <Suspense fallback={<p>Loading...</p>}> { routes } </Suspense>
+            </Layout>
         </div>
     );
 };

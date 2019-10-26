@@ -1,0 +1,13 @@
+.searchCity {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 50%;
+    align-items: center;
+
+    &__input {
+        width: 100%;
+        outline: none;
+        font-size: 3rem;
+        padding: 1rem 2rem;
+    }
+}

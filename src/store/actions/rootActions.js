@@ -1,0 +1,1 @@
+export { changeTemp, changeTheme } from './userSettings';

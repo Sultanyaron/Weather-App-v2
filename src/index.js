@@ -5,8 +5,9 @@ import { compose, combineReducers, createStore, applyMiddleware } from 'redux';
 import { BrowserRouter } from 'react-router-dom';
 import createSagaMiddleware from 'redux-saga';
 import thunk from 'redux-thunk';
-import currentCityReducer from './store/reducers/currentCityReducer';
-import favoriteReducer from './store/reducers/favoritesReducer';
+import currentCityReducer from './store/reducers/currentCity';
+import favoriteReducer from './store/reducers/favorites';
+import userSettingsReducer from './store/reducers/userSettings';
 
 import './index.scss';
 import App from './App';
@@ -17,7 +18,8 @@ const composeEnhancers = process.env.NODE_ENV === 'development' ? window.__REDUX
 
 const rootReducer = combineReducers({
     currentCity: currentCityReducer,
-    favorites : favoriteReducer
+    favorites : favoriteReducer,
+    userSettings: userSettingsReducer
 });
 
 const sagaMiddleware = createSagaMiddleware();

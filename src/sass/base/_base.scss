@@ -9,6 +9,7 @@
 
 html{
     font-size: 62.5%; 
+    
 
     // @include respond(tab-land) { //width < 1200?
     //     font-size: 56.25%; //1 rem = 9px. 9/16
@@ -25,7 +26,7 @@ html{
 
 body {
     box-sizing: border-box;/*used in the * selector*/
-    
+   
 
     // @include respond(tab-port) {
     //     padding: 0;

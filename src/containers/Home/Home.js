@@ -1,10 +1,12 @@
 import React from 'react'; 
-
+import SearchCity from '../../components/SearchCity/SearchCity';
 
 const Home = props => {
 
     return (
-    <div className='Home'>HOME</div>
+    <div className='home'>
+        <SearchCity />
+    </div>
     );
 };
 
