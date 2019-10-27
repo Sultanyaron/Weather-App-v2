@@ -1,35 +1,42 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import autoCompleteMock from '../../../mock/citys.json';
+import { useSelector, useDispatch } from 'react-redux';
+import * as actions from '../../../store/actions/rootActions';
 
 const SearchResults = () => {
 
-    // const currentCityKey = useSelector( state => state)
+    const { selectedCityKey } = useSelector( state => state.home);
+    const { searchResults } = useSelector(state => state.home);
+    const dispatch = useDispatch();
+    const onSelectCity = (cityName, cityKey) => dispatch(actions.updateSelectedCity(cityName, cityKey))
+    const onClearSearchResults = () => dispatch(actions.clearSearchResults());
     
     const selectCity = (cityName, cityKey) => {
-        // if ( cityName !== )
+        if (cityName !== selectedCityKey ) {
+            onSelectCity(cityName, cityKey);
+            onClearSearchResults();
+        };       
     };
     
-    const results = [];
-    for ( let i = 0; i < autoCompleteMock.length; i++) {
-        const { LocalizedName, Key } = autoCompleteMock[i];
-        let li = (
-            <li 
-                onclick={() => selectCity(LocalizedName, Key)}
+
+    
+    const results = searchResults.map(city => {
+        const { LocalizedName, Key } = city;
+        return (
+            <li
+                className='searchCity__item'
+                onClick={() => selectCity(LocalizedName, Key)}
+                key={Key} 
                 >
                 {LocalizedName}
-            </li>
-        )
-    };
-
-    console.log(results);
+            </li>             
+        );
+    })
     
     return (
-        <ul>
-
+        <ul className='searchCity__results'>
+            {results}
         </ul>
     );
-    
 };
 
 export default SearchResults;

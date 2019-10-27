@@ -7,9 +7,11 @@ import SearchResults from './SearchResults/SearchResults';
 const SearchCity = (props) => {
 
     return (
-        <div className="searchCity">
-            <AutoCompleteInput />
-            <SearchResults />
+        <div className='searchCity-wrapper'>
+            <div className="searchCity">
+                <AutoCompleteInput />
+                <SearchResults />
+            </div>
         </div>
     );
 };

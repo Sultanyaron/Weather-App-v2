@@ -21,7 +21,7 @@ const App = props => {
     return (
         <div className="App">
             <Layout>
-                <Suspense fallback={<p>Loading...</p>}> { routes } </Suspense>
+                <Suspense fallback={<p>Loading...</p>}> <main>{ routes }</main>  </Suspense>
             </Layout>
         </div>
     );
