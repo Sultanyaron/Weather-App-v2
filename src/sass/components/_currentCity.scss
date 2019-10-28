@@ -1,7 +1,9 @@
 .currentCity {
     // margin-top: 5rem;
     display: flex;
-    height: 20rem;
-    width: 20rem;
+    flex-direction: column;
+    border-radius: $border-radius-1;
+    overflow: hidden;
+    width: 100rem;
     background-color: rgba($color-grey-light-2, .9);
 };

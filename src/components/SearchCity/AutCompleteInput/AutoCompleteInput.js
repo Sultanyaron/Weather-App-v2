@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { validLetter } from '../../../shared/validEnglishLetters';
 import * as actions from '../../../store/actions/rootActions';
     
 const AutoCompleteInput = (props) => {
     const [ inputVal, setInputVal ] = useState('');
+    const { selectedCityKey } = useSelector(state => state.home);
     const dispatch = useDispatch();
     const onSearchCityFetch = useCallback((cityKey) => dispatch(actions.fetchSearch(cityKey)), [dispatch]);
     const onClearSearchResults = useCallback(() => dispatch(actions.clearSearchResults()), [dispatch])
@@ -18,7 +19,12 @@ const AutoCompleteInput = (props) => {
                 clearTimeout(timer);
             };
         };
-    },[inputVal, onSearchCityFetch])
+    },[inputVal, onSearchCityFetch]);
+
+    //for resetting the input when new city selected
+    useEffect(() => {
+        setInputVal('');
+    }, [selectedCityKey])
 
     const inputChangedHandler = (event) => {
         setInputVal(event.target.value);
@@ -27,8 +33,8 @@ const AutoCompleteInput = (props) => {
         };
     };
 
-    const validKeyHandler = ( event ) => {
-        if (!validLetter( event )){
+    const validKeyHandler = (event) => {
+        if (!validLetter(event)){
             event.preventDefault()
         };
     };
@@ -36,9 +42,11 @@ const AutoCompleteInput = (props) => {
     return (
         <input
             className='searchCity__input'
+            placeholder='Search city'
             type='text'
             onChange={inputChangedHandler}
-            onKeyPress={validKeyHandler} />
+            onKeyPress={validKeyHandler}
+            value={inputVal} />
     ) ;
 };
 
