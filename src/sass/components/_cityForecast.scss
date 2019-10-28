@@ -1,5 +1,11 @@
 .cityForecast {
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: yellow;
     height: 20rem;
-    background-color: red;
+
+    &__title {
+        padding: 3rem 0;
+        color: $color-primary-light;
+    }
 }

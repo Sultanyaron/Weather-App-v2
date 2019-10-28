@@ -2,8 +2,9 @@
     // margin-top: 5rem;
     display: flex;
     flex-direction: column;
+    flex-shrink: 1;
     border-radius: $border-radius-1;
     overflow: hidden;
-    width: 100rem;
+    min-width: 100rem;
     background-color: rgba($color-grey-light-2, .9);
 };

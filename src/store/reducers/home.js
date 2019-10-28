@@ -6,7 +6,10 @@ const initialState = {
     selectedCityName: null,
     searchResults: [],
     currentWeather: null,
-    currentWeatherLoading: false
+    currentWeatherLoading: false,
+    geoLocationArrived: false,
+    forecasts: null,
+    forecastLoading: false
 };
 
 const reducer = (state = initialState, action) => {
@@ -44,7 +47,23 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 selectedCityKey: action.cityKey,
-                selectedCityName: action.cityName
+                selectedCityName: action.cityName,
+                geoLocationArrived: true
+            };
+        case actionTypes.FETCH_GEO_LOCATION_FAIL:
+            return {
+                ...state,
+                geoLocationArrived: true
+            }
+        case actionTypes.FETCH_FORECAST_START:
+            return {
+                ...state, 
+                forecastLoading: true
+            };
+        case actionTypes.FETCH_FORECAST_SUCCESS:
+            return {
+                ...state,
+                forecasts: action.data
             };
         default: return state;
     };

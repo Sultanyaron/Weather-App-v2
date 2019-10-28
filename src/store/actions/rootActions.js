@@ -9,5 +9,9 @@ export {
     fetchCurrentWeatherSuccess,
     getGeoLocation,
     fetchGeoLocation,
-    fetchGeoLocationSuccess
+    fetchGeoLocationSuccess,
+    fetchForecast,
+    fetchForecastSuccess,
+    fetchForecastStart,
+    fetchGeoLocationFail
 } from './home';

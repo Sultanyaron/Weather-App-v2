@@ -53,7 +53,7 @@ export const fetchCurrentWeatherSuccess = (data) => {
 };
 
 
-//Geo location side effect
+//Geo location 
 
 export const getGeoLocation = () => {
     return {
@@ -76,6 +76,34 @@ export const fetchGeoLocationSuccess = (cityName, cityKey) => {
     };
 };  
 
+export const fetchGeoLocationFail = () => {
+    return {
+        type: actionTypes.FETCH_GEO_LOCATION_FAIL
+    };
+};
+
+
+//Fetch forecast
+
+export const fetchForecast = (cityKey) => {
+    return {
+        type: actionTypes.FETCH_FORECAST,
+        cityKey: cityKey
+    };
+};
+
+export const fetchForecastSuccess = (data) => {
+    return {
+        type: actionTypes.FETCH_FORECAST_SUCCESS,
+        data: data
+    };
+};
+
+export const fetchForecastStart = () => {
+    return {
+        type: actionTypes.FETCH_FORECAST_START
+    };
+};
 
 
 

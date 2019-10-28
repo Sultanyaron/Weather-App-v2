@@ -6,14 +6,18 @@ const CityHeader = (props) => {
 
     return (
         <header className='cityHeader'>
-            <div className='cityHeader__current'>
-                <img className='cityHeader__icon' src={SunIcon} alt={'dsd'} />
-                <div className='cityHeader__details'>
-                    <p className='cityHeader__details--title'>{props.cCityName}</p>
-                    <p className='cityHeader__details--temp'>{props.cWeatherTemp}°</p>
+            <div className='cityHeader__details'>
+                <p className='cityHeader__details-title'>{props.cCityName}</p>
+                <div className="cityHeader__details-container">
+                    <img className='cityHeader__icon' src={SunIcon} alt={'dsd'} />
+                    <div className="cityHeader__details-subContainer">
+                        <p className='cityHeader__details-temp'>{props.cWeatherTemp}°</p>
+                        <div className='cityHeader__details-text'><em>{props.cWeatherText}</em></div>
+                    </div>
                 </div>
+
             </div>
-            <div className='cityHeader__text title-large'><em>{props.cWeatherText}</em></div>
+            
             <FavoriteHeart />
         </header>
     );

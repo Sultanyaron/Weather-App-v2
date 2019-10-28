@@ -1,10 +1,8 @@
 .favoriteHeart {
-    padding: 2rem 4rem;
-
     &__svg {
         position: relative;
-        height: 5rem;
-        width: 5rem;
+        height: 7rem;
+        width: 7rem;
         -webkit-mask-image: url(../../assets/images/heart1.svg);
         mask-image: url(../../assets/images/heart1.svg);
         -webkit-mask-size: cover;

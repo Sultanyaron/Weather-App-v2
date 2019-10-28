@@ -13,3 +13,7 @@ export const currentWeatherEndpoint = (cityKey) => {
 export const getoLocationEndpoint = (lat, lon) => {
     return basePath + 'locations/v1/cities/geoposition/search?apikey=' + apiKey + '&q=' + lat + '%2C' + lon;
 };  
+
+export const forecastEndpoint = (cityKey) => {
+    return basePath + 'forecasts/v1/daily/5day/' + cityKey + '?apikey=' + apiKey;
+};

@@ -5,11 +5,12 @@ import CityForecast from './CityForecast/CityForecast';
 import * as actions from '../../store/actions/rootActions';
 
 const CurrentCity = () => {
-    const { selectedCityKey, selectedCityName } = useSelector(state => state.home); 
+    const { selectedCityKey, selectedCityName, geoLocationArrived, forecast  } = useSelector(state => state.home); 
     const currentWeather = useSelector(state => state.home.currentWeather);
     const { metric } = useSelector(state => state.userSettings);
     const dispatch = useDispatch();
     const onFetchCurrentWeather = useCallback((cityKey) => dispatch(actions.fetchCurrentWeather(cityKey)), [dispatch]);
+    const onFetchForecast = useCallback((cityKey) => dispatch(actions.fetchForecast(cityKey)), [dispatch]);
     const onGetGeoLocation = useCallback(() => dispatch(actions.getGeoLocation()), [dispatch]);
 
     if (currentWeather) {
@@ -21,15 +22,19 @@ const CurrentCity = () => {
     };
 
     useEffect(() => {
-        if (selectedCityKey) {
+        onGetGeoLocation();
+    }, [onGetGeoLocation]);
+
+    useEffect(() => {
+        if (selectedCityKey && geoLocationArrived) {
+            onFetchForecast(selectedCityKey);
             onFetchCurrentWeather(selectedCityKey);
         };
         
-    }, [onFetchCurrentWeather, selectedCityKey]);
+    }, [onFetchCurrentWeather, onFetchForecast, geoLocationArrived, selectedCityKey]);
 
-    useEffect(() => {
-        onGetGeoLocation();
-    }, [onGetGeoLocation]);
+
+
 
     
 
