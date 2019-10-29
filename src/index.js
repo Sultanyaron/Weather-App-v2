@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { compose, combineReducers, createStore, applyMiddleware } from 'redux';
-import { watchHome } from './store/sagas/rootSaga';
+import { watchHome, watchFavorites } from './store/sagas/rootSaga';
 import { BrowserRouter } from 'react-router-dom';
 import createSagaMiddleware from 'redux-saga';
 import thunk from 'redux-thunk';
@@ -30,6 +30,7 @@ const store = createStore(rootReducer, composeEnhancers(
 ));
 
 sagaMiddleware.run(watchHome);
+sagaMiddleware.run(watchFavorites);
 
 const app = (
     <Provider store={store}>

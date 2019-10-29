@@ -1,5 +1,6 @@
 import * as actionTypes from './actionTypes';
 
+//Sync actions (ADD/REMOVE/INIT)
 export const initFavorites = () => {
     let favorites = [];
     const localFavorites = localStorage.getItem('userFav');
@@ -27,5 +28,26 @@ export const addFavorite = (cityKey, cityName, favorites) => {
     return {
         type: actionTypes.SET_FAVORITES,
         newFavorites: newFavorites
+    };
+};
+
+//Async fetch all 
+export const fetchFavorites = (cityKeysList) => {
+    return {
+        type: actionTypes.FETCH_FAVORITES,
+        cityList: cityKeysList
+    };
+};
+
+export const fetchFavoritesStart = () => {
+    return {
+        type: actionTypes.FETCH_FAVORITES_START
+    };
+};
+
+export const fetchFavoritesSuccess = (results) => {
+    return {
+        type: actionTypes.FETCH_FAVORITES_SUCCESS,
+        citysData: results
     };
 };

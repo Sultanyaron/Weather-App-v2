@@ -19,5 +19,8 @@ export {
 export {
     initFavorites,
     removeFavorite,
-    addFavorite
+    addFavorite,
+    fetchFavorites,
+    fetchFavoritesStart,
+    fetchFavoritesSuccess
 } from './favorites';

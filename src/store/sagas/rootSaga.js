@@ -7,6 +7,7 @@ import {
     fetchGeoLocationSaga,
     fetchForecastSaga 
 } from './home';
+import { fetchFavoritesSaga } from './favorites'
 
 
 export function* watchHome() {
@@ -16,6 +17,12 @@ export function* watchHome() {
         takeEvery(actionTypes.GET_GEO_LOCATION, getGeoLocationSaga),
         takeEvery(actionTypes.FETCH_GEO_LOCATION, fetchGeoLocationSaga),
         takeLatest(actionTypes.FETCH_FORECAST, fetchForecastSaga)
+    ]);
+};
+
+export function* watchFavorites() {
+    yield all ([
+        takeLatest(actionTypes.FETCH_FAVORITES, fetchFavoritesSaga)
     ]);
 };
 
