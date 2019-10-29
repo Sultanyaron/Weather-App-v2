@@ -1,5 +1,8 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect, useCallback } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
+import * as actions from './store/actions/rootActions';
 
 import Home from './containers/Home/Home';
 import Layout from './hoc/Layout';
@@ -10,6 +13,13 @@ const Favorites = React.lazy(() => {
 
 
 const App = props => {
+    const dispatch = useDispatch();
+    const onInitFavorites = useCallback(() => dispatch(actions.initFavorites()), [dispatch]);
+
+    useEffect(() => {
+        onInitFavorites();
+    }, [onInitFavorites] )
+
     let routes = (
         <Switch>
             <Route path="/favorites" component={Favorites}  />

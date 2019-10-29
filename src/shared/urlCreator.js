@@ -15,5 +15,5 @@ export const getoLocationEndpoint = (lat, lon) => {
 };  
 
 export const forecastEndpoint = (cityKey) => {
-    return basePath + 'forecasts/v1/daily/5day/' + cityKey + '?apikey=' + apiKey;
+    return basePath + 'forecasts/v1/daily/5day/' + cityKey + '?apikey=' + apiKey + '&metric=true';
 };

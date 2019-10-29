@@ -6,10 +6,10 @@ const initialState = {
     selectedCityName: null,
     searchResults: [],
     currentWeather: null,
-    currentWeatherLoading: false,
+    currentWeatherLoading: true,
     geoLocationArrived: false,
     forecasts: null,
-    forecastLoading: false
+    forecastLoading: true
 };
 
 const reducer = (state = initialState, action) => {
@@ -63,7 +63,8 @@ const reducer = (state = initialState, action) => {
         case actionTypes.FETCH_FORECAST_SUCCESS:
             return {
                 ...state,
-                forecasts: action.data
+                forecasts: action.data,
+                forecastLoading: false
             };
         default: return state;
     };

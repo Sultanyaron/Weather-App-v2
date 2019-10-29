@@ -15,3 +15,9 @@ export {
     fetchForecastStart,
     fetchGeoLocationFail
 } from './home';
+
+export {
+    initFavorites,
+    removeFavorite,
+    addFavorite
+} from './favorites';

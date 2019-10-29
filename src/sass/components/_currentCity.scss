@@ -2,9 +2,12 @@
     // margin-top: 5rem;
     display: flex;
     flex-direction: column;
+    align-items: center;
     flex-shrink: 1;
     border-radius: $border-radius-1;
     overflow: hidden;
     min-width: 100rem;
     background-color: rgba($color-grey-light-2, .9);
+    padding: 2rem 3rem;
+    box-shadow: $box-shadow-1;
 };
