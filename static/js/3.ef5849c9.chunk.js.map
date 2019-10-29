@@ -1,0 +1,1 @@
+{"version":3,"sources":["containers/Favorites/Favorites.js"],"names":["Favorites","props"],"mappings":"mIAAA,2BASeA,UANG,SAAAC,GACd,OACI","file":"static/js/3.ef5849c9.chunk.js","sourcesContent":["import React from 'react';\r\n\r\n\r\nconst Favorites = props => {\r\n    return (\r\n        <div>Favorites</div>\r\n    )\r\n};\r\n\r\nexport default Favorites;\r\n"],"sourceRoot":""}
