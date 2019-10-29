@@ -22,9 +22,9 @@ const App = props => {
 
     let routes = (
         <Switch>
-            <Route path="/favorites" component={Favorites}  />
-            <Route path="/" component={Home} />
-            <Redirect to="/" />
+            <Route path={"/favorites"} component={Favorites}  />
+            <Route path={"/"} component={Home} />
+            <Redirect to={"/"} />
         </Switch>
     ); 
 
