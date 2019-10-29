@@ -21,7 +21,9 @@ const CityHeader = (props) => {
             
             <FavoriteHeart 
                 cityKey={props.cCityKey}
-                cityName={props.cCityName} />
+                cityName={props.cCityName}
+                height='7rem'
+                width='7rem' />
         </header>
     );
 };

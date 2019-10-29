@@ -15,10 +15,15 @@ const Favorites = React.lazy(() => {
 const App = props => {
     const dispatch = useDispatch();
     const onInitFavorites = useCallback(() => dispatch(actions.initFavorites()), [dispatch]);
+    const onGetGeoLocation = useCallback(() => dispatch(actions.getGeoLocation()), [dispatch]);
 
     useEffect(() => {
         onInitFavorites();
-    }, [onInitFavorites] )
+    }, [onInitFavorites] );
+
+    useEffect(() => {
+        onGetGeoLocation();
+    }, [onGetGeoLocation]);
 
     let routes = (
         <Switch>

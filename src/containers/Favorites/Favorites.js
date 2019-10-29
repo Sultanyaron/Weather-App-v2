@@ -14,13 +14,21 @@ const Favorites = props => {
         favoritesCityKeys.push(favorites[i].cityKey);
     };
     const dispatch = useDispatch();
-    
     const onFetchFavoritesData = useCallback((favoritesCityKeys) => dispatch(actions.fetchFavorites(favoritesCityKeys)),[dispatch]);
+    const onClearFetchedFavorites = useCallback(() => dispatch(actions.clearFetchedFavorites()),[dispatch]);
 
     useEffect(() => {
         onFetchFavoritesData(favoritesCityKeys);
+        console.log('UseEffect Favorites');
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [onFetchFavoritesData]);
+
+    useEffect(() => {
+        return () => {
+
+            onClearFetchedFavorites();
+        };
+    }, [onClearFetchedFavorites]);
     
 
     let favoriteList = <Spinner />
@@ -32,7 +40,8 @@ const Favorites = props => {
                 return <Favorite
                     key={fav.cityKey}
                     cityData={currentCityData}
-                    cityName={fav.cityName} />
+                    cityName={fav.cityName}
+                    cityKey={fav.cityKey} />
             })
         )
         

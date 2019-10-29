@@ -22,5 +22,6 @@ export {
     addFavorite,
     fetchFavorites,
     fetchFavoritesStart,
-    fetchFavoritesSuccess
+    fetchFavoritesSuccess,
+    clearFetchedFavorites
 } from './favorites';

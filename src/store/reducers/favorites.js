@@ -26,6 +26,12 @@ const reducer = (state = initialState, action) => {
                 fetchedFavorites: action.citysData,
                 fetchFavoritesLoading: false
             };
+        case actionTypes.CLEAR_FETCHED_FAVORITES:
+            return {
+                ...state,
+                fetchedFavorites: [],
+                fetchFavoritesLoading: true
+            }
         default: return state;
     };
 };

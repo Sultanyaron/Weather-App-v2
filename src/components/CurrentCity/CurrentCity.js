@@ -12,7 +12,6 @@ const CurrentCity = () => {
     const dispatch = useDispatch();
     const onFetchCurrentWeather = useCallback((cityKey) => dispatch(actions.fetchCurrentWeather(cityKey)), [dispatch]);
     const onFetchForecast = useCallback((cityKey) => dispatch(actions.fetchForecast(cityKey)), [dispatch]);
-    const onGetGeoLocation = useCallback(() => dispatch(actions.getGeoLocation()), [dispatch]);
 
     if (currentWeather) {
         var { WeatherText, WeatherIcon, Temperature } = currentWeather[0];
@@ -22,12 +21,10 @@ const CurrentCity = () => {
         };
     };
 
-    useEffect(() => {
-        onGetGeoLocation();
-    }, [onGetGeoLocation]);
+
 
     useEffect(() => {
-        if (selectedCityKey && geoLocationArrived) {
+        if (selectedCityKey) {
             onFetchForecast(selectedCityKey);
             onFetchCurrentWeather(selectedCityKey);
         };

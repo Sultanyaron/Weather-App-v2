@@ -15,7 +15,9 @@ const FavoriteHeart = (props) => {
     };
 
     const heartStyle = {
-        backgroundColor: colors.notSelected
+        backgroundColor: colors.notSelected,
+        height: props.height,
+        width: props.width
     };
 
     if (favoriteCheck(props.cityKey, favorites)) {

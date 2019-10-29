@@ -1,8 +1,9 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { getIconPath } from '../../shared/getIconPath';
-
-
+import FavoriteHeart from '../UI/FavoriteHeart/FavoriteHeart';
+import * as actions from '../../store/actions/rootActions';
 
 const Favorite = (props) => {
     
@@ -11,27 +12,36 @@ const Favorite = (props) => {
 
     console.log(props.cityData);
     const icon = getIconPath(WeatherIcon);
-
+    const dispatch = useDispatch();
+    const onSelectCity = () => dispatch(actions.updateSelectedCity(props.cityName, props.cityKey))
     let temp = Math.round(Temperature.Metric.Value);
 
     if (!metric) {
         temp = Temperature.Imperial.Value
     };
     
-
+    const redirectHandler = () => {
+        onSelectCity();
+        props.history.push('/');
+    } ;
 
     return (
-        <div className='favorites__item'>
+        <div className='favorites__item' onClick={redirectHandler}>
+            <FavoriteHeart 
+                cityKey={props.cityKey}
+                cityName={props.cityName}
+                height='4rem'
+                width='4rem' />
             <p className='favorites__title'>{props.cityName}</p>
             <div className='favorites__details'>
                 <img className='favorites__icon' src={icon} alt={WeatherText} />
                 <div className='favorites__container'>
                     <p className='favorites__temp'>{temp}°</p>
-                    <p className='favotires__text'>{WeatherText}</p>
+                    <p className='favorites__text'>{WeatherText}</p>
                 </div>
             </div>
         </div>
     );
 };
 
-export default Favorite;
+export default withRouter(Favorite);
