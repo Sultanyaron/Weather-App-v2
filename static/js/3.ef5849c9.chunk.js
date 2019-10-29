@@ -1,2 +1,0 @@
-(this["webpackJsonpherolo-assignment-v2"]=this["webpackJsonpherolo-assignment-v2"]||[]).push([[3],{76:function(e,n,t){"use strict";t.r(n);var s=t(0),a=t.n(s);n.default=function(e){return a.a.createElement("div",null,"Favorites")}}}]);
-//# sourceMappingURL=3.ef5849c9.chunk.js.map
