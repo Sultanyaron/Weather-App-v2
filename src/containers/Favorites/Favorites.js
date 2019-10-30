@@ -7,11 +7,9 @@ import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import axios from '../../shared/axios-weather';
 
 
-const Favorites = props => {
+const Favorites = () => {
 
-    if ( !props.error ) {
 
-    }
     const { fetchFavoritesLoading } = useSelector(state => state.favorites)
     const { favorites, fetchedFavorites } = useSelector(state => state.favorites);
     const favoritesCityKeys = [];
@@ -64,6 +62,4 @@ const Favorites = props => {
     )
 };
 
-export default React.memo(withErrorHandler(Favorites, axios), (prevProps, nextProps) => {
-    return nextProps.fetchedFavorites.length
-});
+export default withErrorHandler(Favorites, axios);

@@ -5,7 +5,7 @@ import { getIconPath } from '../../shared/getIconPath';
 import FavoriteHeart from '../UI/FavoriteHeart/FavoriteHeart';
 import * as actions from '../../store/actions/rootActions';
 
-const Favorite = (props) => {
+const Favorite = React.memo((props) => {
     
     const { WeatherIcon, Temperature, WeatherText } = props.cityData.data[0];
     const { metric } = useSelector(state => state.userSettings);
@@ -40,6 +40,6 @@ const Favorite = (props) => {
             </div>
         </div>
     );
-};
+});
 
 export default withRouter(Favorite);

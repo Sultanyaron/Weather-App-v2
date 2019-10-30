@@ -1,4 +1,4 @@
-import { put, call } from 'redux-saga/effects';
+import { put, call, all } from 'redux-saga/effects';
 import * as actions from '../actions/rootActions';
 import axios from '../../shared/axios-weather';
 import * as urlCreator from '../../shared/urlCreator';
@@ -19,8 +19,10 @@ export function* fetchCityDataSaga(action) {
 
     yield put(actions.fetchCityDataStart());
     try {
-        const currentWeatherRes = yield axios.get(currentWeatherEndpoint);
-        const forecastRes = yield axios.get(forecastEndpoint);
+        const [currentWeatherRes, forecastRes ] = yield all([
+            call(axios.get, currentWeatherEndpoint),
+            call(axios.get, forecastEndpoint)
+        ]);
         yield put(actions.fetchCityDataSuccess(currentWeatherRes.data, forecastRes.data));
     } catch (error) {
         console.error(error);
