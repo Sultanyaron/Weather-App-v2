@@ -9,8 +9,6 @@ const Favorite = (props) => {
     
     const { WeatherIcon, Temperature, WeatherText } = props.cityData.data[0];
     const { metric } = useSelector(state => state.userSettings);
-
-    console.log(props.cityData);
     const icon = getIconPath(WeatherIcon);
     const dispatch = useDispatch();
     const onSelectCity = () => dispatch(actions.updateSelectedCity(props.cityName, props.cityKey))
@@ -26,13 +24,13 @@ const Favorite = (props) => {
     } ;
 
     return (
-        <div className='favorites__item' onClick={redirectHandler}>
+        <div className='favorites__item'>
             <FavoriteHeart 
                 cityKey={props.cityKey}
                 cityName={props.cityName}
                 height='4rem'
                 width='4rem' />
-            <p className='favorites__title'>{props.cityName}</p>
+            <p className='favorites__title' onClick={redirectHandler}>{props.cityName}</p>
             <div className='favorites__details'>
                 <img className='favorites__icon' src={icon} alt={WeatherText} />
                 <div className='favorites__container'>

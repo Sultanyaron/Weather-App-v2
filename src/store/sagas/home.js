@@ -9,7 +9,7 @@ export function* fetchSearchSaga(action) {
         const response = yield axios.get(searchEndpoint);
         yield put(actions.fetchSearchSuccess(response.data));
     } catch (error) {
-        console.log(error);
+        console.error(error);
     };        
 };
 

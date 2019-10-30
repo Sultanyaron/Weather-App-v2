@@ -3,10 +3,15 @@ import { useSelector, useDispatch } from 'react-redux';
 import Favorite from '../../components/Favorite/Favorite';
 import * as actions from '../../store/actions/rootActions';
 import Spinner from '../../components/UI/Spinner/Spinner';
+import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
+import axios from '../../shared/axios-weather';
 
 
 const Favorites = props => {
 
+    if ( !props.error ) {
+
+    }
     const { fetchFavoritesLoading } = useSelector(state => state.favorites)
     const { favorites, fetchedFavorites } = useSelector(state => state.favorites);
     const favoritesCityKeys = [];
@@ -19,7 +24,6 @@ const Favorites = props => {
 
     useEffect(() => {
         onFetchFavoritesData(favoritesCityKeys);
-        console.log('UseEffect Favorites');
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [onFetchFavoritesData]);
 
@@ -33,7 +37,9 @@ const Favorites = props => {
 
     let favoriteList = <Spinner />
 
-    if (!fetchFavoritesLoading) {
+
+
+    if (!fetchFavoritesLoading && !props.error) {
         favoriteList= (
             favorites.map(fav => {
                 const currentCityData = fetchedFavorites.filter(item => fav.cityKey === item.cityKey)[0]
@@ -43,9 +49,13 @@ const Favorites = props => {
                     cityName={fav.cityName}
                     cityKey={fav.cityKey} />
             })
-        )
+        );
         
-    }
+    };
+
+    if (favorites.length === 0) {
+        favoriteList = <h1 className='favorites__empty'>Your favorites is empty<br/>Add them at Homepage</h1>
+    };
 
 
 
@@ -59,4 +69,4 @@ const Favorites = props => {
     )
 };
 
-export default Favorites;
+export default withErrorHandler(Favorites, axios);

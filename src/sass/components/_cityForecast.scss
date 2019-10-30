@@ -1,8 +1,7 @@
 .cityForecast {
     display: flex;
     flex-direction: column;
-    width: 100%;
-
+    flex-shrink: 0 0 100%;
 
     &__title {
         padding: 3rem 0;
@@ -13,7 +12,9 @@
 
     &__forecasts {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
     }
 
     &__day {
@@ -22,6 +23,7 @@
         padding: 1rem;
         box-shadow: $box-shadow-1;
         background-color: $color-grey-light-1;
+        margin: 1.5rem;
 
         &-container {
             display: flex;

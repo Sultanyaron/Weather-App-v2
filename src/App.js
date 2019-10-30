@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import * as actions from './store/actions/rootActions';
 
 import Home from './containers/Home/Home';
-import Layout from './hoc/Layout';
+import Layout from './hoc/Layout/Layout';
 
 const Favorites = React.lazy(() => {
     return import('./containers/Favorites/Favorites');

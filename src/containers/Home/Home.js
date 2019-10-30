@@ -1,6 +1,8 @@
 import React from 'react'; 
 import SearchCity from '../../components/SearchCity/SearchCity';
 import CurrentCity from '../../components/CurrentCity/CurrentCity';
+import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
+import axios from '../../shared/axios-weather';
 
 const Home = props => {
 
@@ -13,4 +15,4 @@ const Home = props => {
 };
 
 
-export default Home;
+export default withErrorHandler(Home, axios);
