@@ -49,7 +49,9 @@ const CurrentCity = () => {
 
     return (
         <div className='currentCity'>
-            {content}
+            <div className='currentCity__box'>
+                {content}
+            </div>
         </div>
     )
 };

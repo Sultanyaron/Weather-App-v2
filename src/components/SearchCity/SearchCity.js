@@ -7,8 +7,8 @@ import SearchResults from './SearchResults/SearchResults';
 const SearchCity = (props) => {
 
     return (
-        <div className='searchCity-wrapper'>
-            <div className="searchCity">
+        <div className='searchCity'>
+            <div className="searchCity-wrapper">
                 <AutoCompleteInput />
                 <SearchResults />
             </div>

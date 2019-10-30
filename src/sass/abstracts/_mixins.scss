@@ -5,6 +5,17 @@
     transform: translate(-50%, -50%);
 }
 
+@mixin page-transition-animation ($paste) {
+    @if ($paste == fast) {
+        animation: pageTransition .3s linear;
+    }
+
+    @if ($paste == slow) {
+        animation: pageTransition 1s linear;
+    }
+    
+}
+
 
 
 //Media query manager
@@ -29,8 +40,16 @@ Order: Base + typhography > general layout + grid > page layout > components
 */
 
 @mixin respond($breakpoint) {
+    @if $breakpoint == phone-small {
+        @media only screen and (max-width: 25em) { @content };    //600px
+    }
+
     @if $breakpoint == phone {
         @media only screen and (max-width: 37.5em) { @content };    //600px
+    }
+
+    @if $breakpoint == tab-small {
+        @media only screen and (max-width: 43.75em) { @content };    //700px
     }
 
     @if $breakpoint == tab-port {

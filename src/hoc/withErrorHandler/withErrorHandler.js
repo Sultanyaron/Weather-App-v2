@@ -14,22 +14,18 @@ const withErrorHandler = (WrappedComponent, axios) => {
                     <p className='errorHandler__message'>{error.message}, please try again in few minutes</p>
                 </div>
             );
-            
-        }
-        
+        };
         return (
             <React.Fragment>
                 <Modal 
                     show={error}
                     clicked={clearError}>
-
                     {errorMessage}
                 </Modal>
                 <WrappedComponent error={error} {...props}/>
             </React.Fragment>
         );
     };
-
 };
 
 export default withErrorHandler;

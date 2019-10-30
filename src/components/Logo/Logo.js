@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 const Logo = () => {
 
     return (
-        <Link className='logo' to="/">
-            <h1 className="logo__title">Herolo Weather</h1>
+        <Link className='navigation__logo' to="/">
+            <h1>Herolo Weather</h1>
         </Link>
     );
 };

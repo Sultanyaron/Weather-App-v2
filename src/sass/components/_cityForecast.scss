@@ -1,7 +1,8 @@
 .cityForecast {
     display: flex;
     flex-direction: column;
-    flex-shrink: 0 0 100%;
+    
+    @include page-transition-animation(slow);
 
     &__title {
         padding: 3rem 0;
@@ -24,6 +25,8 @@
         box-shadow: $box-shadow-1;
         background-color: $color-grey-light-1;
         margin: 1.5rem;
+        transition: transform .5s;
+        
 
         &-container {
             display: flex;
@@ -35,6 +38,10 @@
             font-weight: 900;
             color: $color-primary-dark;
             margin-bottom: 2rem;
+        }
+
+        &:hover {
+            transform: translateY(-1rem);
         }
     }
 

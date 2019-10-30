@@ -1,18 +1,15 @@
 .searchCity {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60%;
-    overflow: hidden;
-    border-radius: $border-radius-1;
-    background-color: rgba($color-grey-light-2, .8);
-    box-shadow: $box-shadow-1;
- 
+    display: flex;
+   
+    justify-content: center;
+    margin: 5rem 0;
+
     &-wrapper {
-        display: flex;
-        position: relative;
-        height: 15rem;
-        min-width: 100rem;
+        flex: 0 1 80%;
+        overflow: hidden;
+        border-radius: $border-radius-1;
+        background-color: rgba($color-grey-light-2, .8);
+        box-shadow: $box-shadow-1;
     }
 
     &__input, 

@@ -2,3 +2,8 @@
     from {transform: rotate(360deg);}
     to {transform: rotate(0deg);}
 }
+
+@keyframes pageTransition {
+    from{opacity: 0}
+    to{opacity: 1}
+}
