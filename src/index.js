@@ -10,7 +10,7 @@ import homeReducer from './store/reducers/home';
 import favoriteReducer from './store/reducers/favorites';
 import userSettingsReducer from './store/reducers/userSettings';
 
-import './index.scss';
+import './assets/sass/main.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 

@@ -1,4 +1,3 @@
-
 *,
 *::after,
 *::before {
@@ -22,13 +21,13 @@ html{
         font-size: 43.75%; //1 rem = 7px. 7/16
     }
 
-    @include respond(big-desktop) { //width > 1800?
+    @include respond(big-desktop) { //width > 1200?
         font-size: 75%; //1 rem = 12px. 12/16
     }
 }
 
 body {
-    box-sizing: border-box;/*used in the * selector*/
+    box-sizing: border-box;
 }
 
 ::selection {

@@ -5,7 +5,8 @@ import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import axios from '../../shared/axios-weather';
 
 const Home = props => {
-
+    console.log('home Render');
+    
     return (
     <div className='home'>
         <SearchCity />

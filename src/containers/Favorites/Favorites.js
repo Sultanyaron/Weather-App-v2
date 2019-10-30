@@ -22,8 +22,10 @@ const Favorites = props => {
     const onFetchFavoritesData = useCallback((favoritesCityKeys) => dispatch(actions.fetchFavorites(favoritesCityKeys)),[dispatch]);
     const onClearFetchedFavorites = useCallback(() => dispatch(actions.clearFetchedFavorites()),[dispatch]);
 
+    console.log('Favorites Render');
+    
     useEffect(() => {
-        onFetchFavoritesData(favoritesCityKeys);
+            onFetchFavoritesData(favoritesCityKeys);
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [onFetchFavoritesData]);
 
@@ -34,12 +36,8 @@ const Favorites = props => {
         };
     }, [onClearFetchedFavorites]);
     
-
-    let favoriteList = <Spinner />
-
-
-
-    if (!fetchFavoritesLoading && !props.error) {
+    let favoriteList = <Spinner />;
+    if (!fetchFavoritesLoading) {
         favoriteList= (
             favorites.map(fav => {
                 const currentCityData = fetchedFavorites.filter(item => fav.cityKey === item.cityKey)[0]
@@ -52,13 +50,10 @@ const Favorites = props => {
         );
         
     };
-
+    
     if (favorites.length === 0) {
         favoriteList = <h1 className='favorites__empty'>Your favorites is empty<br/>Add them at Homepage</h1>
     };
-
-
-
 
     return (
         <div className='favorites'>
@@ -69,4 +64,6 @@ const Favorites = props => {
     )
 };
 
-export default withErrorHandler(Favorites, axios);
+export default React.memo(withErrorHandler(Favorites, axios), (prevProps, nextProps) => {
+    return nextProps.fetchedFavorites.length
+});

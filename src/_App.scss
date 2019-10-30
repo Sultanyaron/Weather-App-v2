@@ -1,0 +1,11 @@
+.App {
+    background-image: url('./assets/images/bgImageDeskx1.jpg');
+    background-size: cover;
+    background-position: 50% 50%;
+    min-height: 100vh;
+
+    @media screen and (min-width: 75em),
+           screen and (min-width: 37.5em) and (min-resolution: 192dpi){
+        background-image: url('./assets/images/bgImageDeskx2.jpg');
+    }
+}

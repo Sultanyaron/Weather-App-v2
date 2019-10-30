@@ -52,6 +52,7 @@ export const fetchFavoritesSuccess = (results) => {
     };
 };
 
+
 export const clearFetchedFavorites = () => {
     return {
         type: actionTypes.CLEAR_FETCHED_FAVORITES
