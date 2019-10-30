@@ -13,20 +13,21 @@ export function* fetchSearchSaga(action) {
     };        
 };
 
-export function* fetchCurrentWeatherSaga(action) {
-    const weatherEndpoint = yield urlCreator.currentWeatherEndpoint(action.cityKey);
-    yield put(actions.fetchCurrentWeatherStart);
+export function* fetchCityDataSaga(action) {
+    const currentWeatherEndpoint = yield urlCreator.currentWeatherEndpoint(action.cityKey);
+    const forecastEndpoint = yield urlCreator.forecastEndpoint(action.cityKey);
+
+    yield put(actions.fetchCityDataStart());
     try {
-        const response = yield axios.get(weatherEndpoint);
-        yield put(actions.fetchCurrentWeatherSuccess(response.data));
+        const currentWeatherRes = yield axios.get(currentWeatherEndpoint);
+        const forecastRes = yield axios.get(forecastEndpoint);
+        yield put(actions.fetchCityDataSuccess(currentWeatherRes.data, forecastRes.data));
     } catch (error) {
         console.error(error);
     }
 };
 
-
 const getUserLocation = () => new Promise((resolve) => {
-    
     navigator.geolocation.getCurrentPosition(
         location => resolve(location),
         error => resolve(error),
@@ -56,14 +57,4 @@ export function* fetchGeoLocationSaga (action) {
     };
 };
 
-export function* fetchForecastSaga(action) {
 
-    const forecastEndpoint = yield urlCreator.forecastEndpoint(action.cityKey);
-    yield put(actions.fetchForecastStart());
-    try {
-        const response = yield axios.get(forecastEndpoint)
-        yield put(actions.fetchForecastSuccess(response.data));
-    } catch (error) {
-
-    }
-};

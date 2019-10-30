@@ -4,7 +4,7 @@ import DayForecast from './DayForecast/DayForecast';
 
 
 const CityForecast = () => {
-
+    console.log('CityForecast RENDER');
     const { forecasts } = useSelector(state => state.home);
   
     
@@ -18,12 +18,12 @@ const CityForecast = () => {
                 <div className='cityForecast__forecasts'>
                     {DailyForecasts.map(dayForecast => {
                         return <DayForecast 
-                                    key={dayForecast.EpochDate}
-                                    dailyForecast={dayForecast}/>
+                            key={dayForecast.EpochDate}
+                            dailyForecast={dayForecast}/>
                     })}
                 </div>
             </React.Fragment>
-        )
+        );
     };
 
     return (
@@ -33,4 +33,4 @@ const CityForecast = () => {
     );
 };
 
-export default CityForecast;
+export default React.memo(CityForecast);

@@ -4,15 +4,12 @@ export {
     fetchSearchSuccess, 
     clearSearchResults, 
     updateSelectedCity,
-    fetchCurrentWeather,
-    fetchCurrentWeatherStart,
-    fetchCurrentWeatherSuccess,
+    fetchCityData,
+    fetchCityDataStart,
+    fetchCityDataSuccess,
     getGeoLocation,
     fetchGeoLocation,
     fetchGeoLocationSuccess,
-    fetchForecast,
-    fetchForecastSuccess,
-    fetchForecastStart,
     fetchGeoLocationFail
 } from './home';
 

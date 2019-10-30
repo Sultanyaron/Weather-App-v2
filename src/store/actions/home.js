@@ -32,23 +32,24 @@ export const updateSelectedCity = (cityName, cityKey) => {
 
 //Fetch current weather 
 
-export const fetchCurrentWeather = ( cityKey ) => {
+export const fetchCityData = ( cityKey ) => {
     return {
-        type: actionTypes.FETCH_CURRENT_WEATHER,
+        type: actionTypes.FETCH_CITY_DATA,
         cityKey: cityKey
     };
 };
 
-export const fetchCurrentWeatherStart = () => {
+export const fetchCityDataStart = () => {
     return {
-        type: actionTypes.FETCH_CURRENT_WEATHER_START
+        type: actionTypes.FETCH_CITY_DATA_START
     };
 };
 
-export const fetchCurrentWeatherSuccess = (data) => {
+export const fetchCityDataSuccess = (currentWeather, forecast) => {
     return {
-        type: actionTypes.FETCH_CURRENT_WEATHER_SUCCESS,
-        data: data
+        type: actionTypes.FETCH_CITY_DATA_SUCCESS,
+        currentWeatherData: currentWeather,
+        forecastData: forecast
     };
 };
 
@@ -81,30 +82,6 @@ export const fetchGeoLocationFail = () => {
         type: actionTypes.FETCH_GEO_LOCATION_FAIL
     };
 };
-
-
-//Fetch forecast
-
-export const fetchForecast = (cityKey) => {
-    return {
-        type: actionTypes.FETCH_FORECAST,
-        cityKey: cityKey
-    };
-};
-
-export const fetchForecastSuccess = (data) => {
-    return {
-        type: actionTypes.FETCH_FORECAST_SUCCESS,
-        data: data
-    };
-};
-
-export const fetchForecastStart = () => {
-    return {
-        type: actionTypes.FETCH_FORECAST_START
-    };
-};
-
 
 
 

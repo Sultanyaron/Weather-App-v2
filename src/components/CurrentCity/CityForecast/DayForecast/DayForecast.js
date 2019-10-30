@@ -6,6 +6,7 @@ import { celToFar } from '../../../../shared/convertTemp'
 
 
 const DayForecast = (props) => {
+    
     const { Temperature, Day, Night  } = props.dailyForecast;
     const date = props.dailyForecast.Date;
     const dayIconPath = getIconPath(Day.Icon);
@@ -40,4 +41,4 @@ const DayForecast = (props) => {
     );
 };
 
-export default DayForecast;
+export default React.memo(DayForecast);

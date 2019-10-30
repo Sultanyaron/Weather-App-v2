@@ -5,11 +5,10 @@ const initialState = {
     selectedCityKey: null,
     selectedCityName: null,
     searchResults: [],
+    fetchCityDataLoading: true,
     currentWeather: null,
-    currentWeatherLoading: true,
-    geoLocationArrived: false,
     forecasts: null,
-    forecastLoading: true
+    geoLocationArrived: false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -31,16 +30,18 @@ const reducer = (state = initialState, action) => {
                 selectedCityKey: action.cityKey,
                 selectedCityName: action.cityName
             };
-        case actionTypes.FETCH_CURRENT_WEATHER_START:
+        case actionTypes.FETCH_CITY_DATA_START:
             return {
                 ...state,
-                currentWeatherLoading: true
+                fetchCityDataLoading: true
             };
-        case actionTypes.FETCH_CURRENT_WEATHER_SUCCESS:
+        case actionTypes.FETCH_CITY_DATA_SUCCESS:
             return {
                 ...state,
                 currentWeatherLoading: false,
-                currentWeather: action.data
+                currentWeather: action.currentWeatherData,
+                forecasts: action.forecastData,
+                fetchCityDataLoading: false
 
             };
         case actionTypes.FETCH_GEO_LOCATION_SUCCESS:
@@ -55,17 +56,6 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 geoLocationArrived: true
             }
-        case actionTypes.FETCH_FORECAST_START:
-            return {
-                ...state, 
-                forecastLoading: true
-            };
-        case actionTypes.FETCH_FORECAST_SUCCESS:
-            return {
-                ...state,
-                forecasts: action.data,
-                forecastLoading: false
-            };
         default: return state;
     };
 };

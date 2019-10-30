@@ -2,10 +2,9 @@ import { all, takeLatest, takeEvery } from 'redux-saga/effects';
 import * as actionTypes from '../actions/actionTypes';
 import { 
     fetchSearchSaga, 
-    fetchCurrentWeatherSaga, 
+    fetchCityDataSaga, 
     getGeoLocationSaga, 
-    fetchGeoLocationSaga,
-    fetchForecastSaga 
+    fetchGeoLocationSaga 
 } from './home';
 import { fetchFavoritesSaga } from './favorites'
 
@@ -13,10 +12,9 @@ import { fetchFavoritesSaga } from './favorites'
 export function* watchHome() {
     yield all ([
         takeLatest(actionTypes.FETCH_SEARCH, fetchSearchSaga),
-        takeLatest(actionTypes.FETCH_CURRENT_WEATHER, fetchCurrentWeatherSaga),
+        takeLatest(actionTypes.FETCH_CITY_DATA, fetchCityDataSaga),
         takeEvery(actionTypes.GET_GEO_LOCATION, getGeoLocationSaga),
-        takeEvery(actionTypes.FETCH_GEO_LOCATION, fetchGeoLocationSaga),
-        takeLatest(actionTypes.FETCH_FORECAST, fetchForecastSaga)
+        takeEvery(actionTypes.FETCH_GEO_LOCATION, fetchGeoLocationSaga)
     ]);
 };
 

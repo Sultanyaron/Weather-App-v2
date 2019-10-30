@@ -6,34 +6,29 @@ import * as actions from '../../store/actions/rootActions';
 import Spinner from '../UI/Spinner/Spinner';
 
 const CurrentCity = () => {
-    const { selectedCityKey, selectedCityName, geoLocationArrived, currentWeatherLoading, forecastLoading  } = useSelector(state => state.home); 
+    console.log('currentCity RENDER');
+    const { selectedCityKey, selectedCityName, fetchCityDataLoading  } = useSelector(state => state.home); 
     const currentWeather = useSelector(state => state.home.currentWeather);
     const { metric } = useSelector(state => state.userSettings);
     const dispatch = useDispatch();
-    const onFetchCurrentWeather = useCallback((cityKey) => dispatch(actions.fetchCurrentWeather(cityKey)), [dispatch]);
-    const onFetchForecast = useCallback((cityKey) => dispatch(actions.fetchForecast(cityKey)), [dispatch]);
+    const onFetchCityDetails = useCallback((cityKey) => dispatch(actions.fetchCityData(cityKey)), [dispatch]);
+    
+    useEffect(() => {
+        if (selectedCityKey) {
+            onFetchCityDetails(selectedCityKey)
+        };
+    }, [onFetchCityDetails, selectedCityKey]);
 
-    if (currentWeather) {
+
+    let content = <Spinner />;
+
+    if (!fetchCityDataLoading) {
         var { WeatherText, WeatherIcon, Temperature } = currentWeather[0];
         var currentTemp = Temperature.Metric.Value;
         if (!metric) {
             currentTemp = Temperature.Imperial.Value;
         };
-    };
 
-
-
-    useEffect(() => {
-        if (selectedCityKey) {
-            onFetchForecast(selectedCityKey);
-            onFetchCurrentWeather(selectedCityKey);
-        };
-        
-    }, [onFetchCurrentWeather, onFetchForecast, geoLocationArrived, selectedCityKey]);
-
-    let content = <Spinner />;
-
-    if (!currentWeatherLoading && !forecastLoading) {
         content = (
             <React.Fragment>
                 <CityHeader 
@@ -53,7 +48,7 @@ const CurrentCity = () => {
                 {content}
             </div>
         </div>
-    )
+    );
 };
 
 export default CurrentCity;
