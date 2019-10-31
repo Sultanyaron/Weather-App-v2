@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/Weather-App-v2/static/css/main.b97830b2.chunk.css",
-    "main.js": "/Weather-App-v2/static/js/main.909ed030.chunk.js",
-    "main.js.map": "/Weather-App-v2/static/js/main.909ed030.chunk.js.map",
-    "runtime-main.js": "/Weather-App-v2/static/js/runtime-main.bf3b6871.js",
-    "runtime-main.js.map": "/Weather-App-v2/static/js/runtime-main.bf3b6871.js.map",
+    "main.css": "/Weather-App-v2/static/css/main.b62e5f2f.chunk.css",
+    "main.js": "/Weather-App-v2/static/js/main.1de94a91.chunk.js",
+    "main.js.map": "/Weather-App-v2/static/js/main.1de94a91.chunk.js.map",
+    "runtime-main.js": "/Weather-App-v2/static/js/runtime-main.65fd54a3.js",
+    "runtime-main.js.map": "/Weather-App-v2/static/js/runtime-main.65fd54a3.js.map",
     "static/js/2.931ab17a.chunk.js": "/Weather-App-v2/static/js/2.931ab17a.chunk.js",
     "static/js/2.931ab17a.chunk.js.map": "/Weather-App-v2/static/js/2.931ab17a.chunk.js.map",
-    "static/js/3.611af8ba.chunk.js": "/Weather-App-v2/static/js/3.611af8ba.chunk.js",
-    "static/js/3.611af8ba.chunk.js.map": "/Weather-App-v2/static/js/3.611af8ba.chunk.js.map",
+    "static/js/3.00d39b3e.chunk.js": "/Weather-App-v2/static/js/3.00d39b3e.chunk.js",
+    "static/js/3.00d39b3e.chunk.js.map": "/Weather-App-v2/static/js/3.00d39b3e.chunk.js.map",
     "index.html": "/Weather-App-v2/index.html",
-    "precache-manifest.723f4ca10a70a005ee25b9d18234a636.js": "/Weather-App-v2/precache-manifest.723f4ca10a70a005ee25b9d18234a636.js",
+    "precache-manifest.a6bd0dddff69161a5f1bc5873b2e49ef.js": "/Weather-App-v2/precache-manifest.a6bd0dddff69161a5f1bc5873b2e49ef.js",
     "service-worker.js": "/Weather-App-v2/service-worker.js",
-    "static/css/main.b97830b2.chunk.css.map": "/Weather-App-v2/static/css/main.b97830b2.chunk.css.map",
+    "static/css/main.b62e5f2f.chunk.css.map": "/Weather-App-v2/static/css/main.b62e5f2f.chunk.css.map",
     "static/media/main.scss": "/Weather-App-v2/static/media/linkedin.f80a0f24.svg",
     "static/media/celsius.svg": "/Weather-App-v2/static/media/celsius.802510af.svg",
     "static/media/fahrenheit.svg": "/Weather-App-v2/static/media/fahrenheit.0a3403d1.svg",
     "static/media/sunLoading.png": "/Weather-App-v2/static/media/sunLoading.3d7f5242.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.bf3b6871.js",
+    "static/js/runtime-main.65fd54a3.js",
     "static/js/2.931ab17a.chunk.js",
-    "static/css/main.b97830b2.chunk.css",
-    "static/js/main.909ed030.chunk.js"
+    "static/css/main.b62e5f2f.chunk.css",
+    "static/js/main.1de94a91.chunk.js"
   ]
 }
