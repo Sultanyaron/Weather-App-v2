@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import * as actions from '../../../store/actions/rootActions';
 
 const SearchResults = () => {
-
     const { selectedCityKey } = useSelector( state => state.home);
     const { searchResults } = useSelector(state => state.home);
     const dispatch = useDispatch();
@@ -16,9 +15,7 @@ const SearchResults = () => {
             onClearSearchResults();
         };       
     };
-    
 
-    
     const results = searchResults.map(city => {
         const { LocalizedName, Key } = city;
         return (
@@ -30,7 +27,7 @@ const SearchResults = () => {
                 {LocalizedName}
             </li>             
         );
-    })
+    });
     
     return (
         <ul className='searchCity__results'>

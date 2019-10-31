@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { getIconPath } from '../../../../shared/getIconPath';
-import { getWeekDay } from '../../../../shared/getWeekDay';
-import { celToFar } from '../../../../shared/convertTemp'
+import { getIconPath } from '../../../../utils/getIconPath';
+import { getWeekDay } from '../../../../utils/getWeekDay';
+import { celToFar } from '../../../../utils/convertTemp'
 
 
 const DayForecast = (props) => {

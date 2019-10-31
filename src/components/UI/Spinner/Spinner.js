@@ -1,8 +1,7 @@
 import React from 'react';
 import sunSpinner from '../../../assets/images/sunLoading.png';
 
-const Spinner = (props) => {
-
+const Spinner = () => {
     return <img className='spinner' src={sunSpinner} alt='Loading...'></img>
 };
 

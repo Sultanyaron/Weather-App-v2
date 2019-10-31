@@ -8,7 +8,6 @@ import {
 } from './home';
 import { fetchFavoritesSaga } from './favorites'
 
-
 export function* watchHome() {
     yield all ([
         takeLatest(actionTypes.FETCH_SEARCH, fetchSearchSaga),

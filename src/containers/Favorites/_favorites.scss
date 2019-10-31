@@ -5,6 +5,9 @@
     text-align: center;
     border-radius: $border-radius-1;
     @include page-transition-animation(fast);
+    @include respond(tab-port) {
+        margin: 6rem auto;
+    }
     
     &__list {
         display: flex;
@@ -29,7 +32,6 @@
         padding: 1rem 1rem;
         margin: 3rem 1rem;
         border-radius: $border-radius-1;
-    
     }
 
     &__title {
@@ -74,7 +76,4 @@
         text-emphasis: none;
         text-shadow: 2px 2px 4px rgb(68, 68, 68);
     }
-
-
-
 }

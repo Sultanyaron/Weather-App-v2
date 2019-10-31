@@ -1,7 +1,7 @@
 import { put, call, all } from 'redux-saga/effects';
 import * as actions from '../actions/rootActions';
-import axios from '../../shared/axios-weather';
-import * as urlCreator from '../../shared/urlCreator';
+import axios from '../../utils/axios-weather';
+import * as urlCreator from '../../utils/urlCreator';
 
 export function* fetchSearchSaga(action) {
     const searchEndpoint =  yield urlCreator.autoCompleteEndpoint(action.value);
@@ -16,7 +16,6 @@ export function* fetchSearchSaga(action) {
 export function* fetchCityDataSaga(action) {
     const currentWeatherEndpoint = yield urlCreator.currentWeatherEndpoint(action.cityKey);
     const forecastEndpoint = yield urlCreator.forecastEndpoint(action.cityKey);
-
     yield put(actions.fetchCityDataStart());
     try {
         const [currentWeatherRes, forecastRes ] = yield all([
@@ -26,7 +25,7 @@ export function* fetchCityDataSaga(action) {
         yield put(actions.fetchCityDataSuccess(currentWeatherRes.data, forecastRes.data));
     } catch (error) {
         console.error(error);
-    }
+    };
 };
 
 const getUserLocation = () => new Promise((resolve) => {

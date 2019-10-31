@@ -5,8 +5,8 @@ import useHttpErrorHook from '../../hooks/http-error-handler/http-error-handler'
 const withErrorHandler = (WrappedComponent, axios) => {
     return (props) => {
         const [error, clearError] = useHttpErrorHook(axios); 
-
         let errorMessage = null;
+        
         if (error) {
             errorMessage = (
                 <div className='errorHandler'>

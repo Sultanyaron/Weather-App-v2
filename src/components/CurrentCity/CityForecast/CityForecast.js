@@ -2,15 +2,11 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import DayForecast from './DayForecast/DayForecast';
 
-
 const CityForecast = () => {
-    console.log('CityForecast RENDER');
     const { forecasts } = useSelector(state => state.home);
-  
-    
     let forecastsList = null;
+
     if (forecasts) {
-    
         const { Headline, DailyForecasts} = forecasts;
         forecastsList = (
             <React.Fragment>

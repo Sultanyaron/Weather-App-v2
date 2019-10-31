@@ -1,5 +1,4 @@
-
-const apiKey = 'u9RaORaXroYFdUkpSTgfjH3Rs8ETJ2bn';
+const apiKey = process.env.REACT_APP_API_KEY;
 const basePath = 'https://dataservice.accuweather.com/';
 
 export const autoCompleteEndpoint = (q) => {
@@ -7,6 +6,8 @@ export const autoCompleteEndpoint = (q) => {
 };
 
 export const currentWeatherEndpoint = (cityKey) => {
+    console.log(apiKey);
+    
     return basePath + 'currentconditions/v1/' + cityKey + '?apikey=' + apiKey;
 };
 

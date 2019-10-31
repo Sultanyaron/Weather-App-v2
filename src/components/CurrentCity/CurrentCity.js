@@ -6,7 +6,6 @@ import * as actions from '../../store/actions/rootActions';
 import Spinner from '../UI/Spinner/Spinner';
 
 const CurrentCity = () => {
-    console.log('currentCity RENDER');
     const { selectedCityKey, selectedCityName, fetchCityDataLoading  } = useSelector(state => state.home); 
     const currentWeather = useSelector(state => state.home.currentWeather);
     const { metric } = useSelector(state => state.userSettings);
@@ -18,7 +17,6 @@ const CurrentCity = () => {
             onFetchCityDetails(selectedCityKey)
         };
     }, [onFetchCityDetails, selectedCityKey]);
-
 
     let content = <Spinner />;
 
@@ -40,7 +38,7 @@ const CurrentCity = () => {
                 <CityForecast />
             </React.Fragment>
         );
-    }
+    };
 
     return (
         <div className='currentCity'>

@@ -1,12 +1,11 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { getIconPath } from '../../shared/getIconPath';
+import { getIconPath } from '../../utils/getIconPath';
 import FavoriteHeart from '../UI/FavoriteHeart/FavoriteHeart';
 import * as actions from '../../store/actions/rootActions';
 
 const Favorite = React.memo((props) => {
-    
     const { WeatherIcon, Temperature, WeatherText } = props.cityData.data[0];
     const { metric } = useSelector(state => state.userSettings);
     const icon = getIconPath(WeatherIcon);

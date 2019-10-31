@@ -1,6 +1,6 @@
 import * as actionTypes from '../actions/actionTypes';
+import { updateObject } from '../../utils/updateObject';
 
-// '215854' 'Tel-Aviv'
 const initialState = {
     selectedCityKey: null,
     selectedCityName: null,
@@ -14,48 +14,30 @@ const initialState = {
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.FETCH_SEARCH_SUCCESS:
-            return {
-                ...state,
-                searchResults: action.searchResults
-            }
+            return updateObject(state, {searchResults: action.searchResults});
         case actionTypes.CLEAR_SEARCH_RESULTS:
-            return {
-                ...state,
-                searchResults: []
-            }
+            return updateObject(state, {searchResults: []});
         case actionTypes.UPDATE_SELECTED_CITY:
-            
-            return {
-                ...state,
-                selectedCityKey: action.cityKey,
+            return updateObject(state, {
+                selectedCityKey: action.cityKey, 
                 selectedCityName: action.cityName
-            };
+            });
         case actionTypes.FETCH_CITY_DATA_START:
-            return {
-                ...state,
-                fetchCityDataLoading: true
-            };
+            return updateObject(state, {fetchCityDataLoading: true});
         case actionTypes.FETCH_CITY_DATA_SUCCESS:
-            return {
-                ...state,
-                currentWeatherLoading: false,
+            return updateObject(state, {
                 currentWeather: action.currentWeatherData,
                 forecasts: action.forecastData,
                 fetchCityDataLoading: false
-
-            };
+            });
         case actionTypes.FETCH_GEO_LOCATION_SUCCESS:
-            return {
-                ...state,
+            return updateObject(state, {
                 selectedCityKey: action.cityKey,
                 selectedCityName: action.cityName,
                 geoLocationArrived: true
-            };
+            });
         case actionTypes.FETCH_GEO_LOCATION_FAIL:
-            return {
-                ...state,
-                geoLocationArrived: true
-            }
+            return updateObject(state, {geoLocationArrived: true});
         default: return state;
     };
 };

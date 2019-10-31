@@ -6,7 +6,6 @@
     @if ($paste == slow) {
         animation: pageTransition 1s linear;
     }
-    
 }
 
 @mixin respond($breakpoint) {

@@ -8,8 +8,6 @@ const TempCheckBox = props => {
     const dispatch = useDispatch();
     const metric = useSelector((state) => state.userSettings.metric);
     const onChangeTemp = () => dispatch(actions.changeTemp());
-
-
     const changeTempHandler = () => {
         onChangeTemp();
     };

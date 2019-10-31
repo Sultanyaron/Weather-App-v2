@@ -1,16 +1,13 @@
 import React, { Suspense, useEffect, useCallback } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-
 import * as actions from './store/actions/rootActions';
-
 import Home from './containers/Home/Home';
 import Layout from './hoc/Layout/Layout';
 
 const Favorites = React.lazy(() => {
     return import('./containers/Favorites/Favorites');
 });
-
 
 const App = props => {
     const dispatch = useDispatch();
@@ -36,7 +33,9 @@ const App = props => {
     return (
         <div className="App">
             <Layout>
-                <Suspense fallback={<p>Loading...</p>}> <main className='mainContainer'>{ routes }</main>  </Suspense>
+                <Suspense fallback={<p>Loading...</p>}>
+                    <main className='mainContainer'>{ routes }</main>  
+                </Suspense>
             </Layout>
         </div>
     );

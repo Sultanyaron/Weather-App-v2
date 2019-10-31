@@ -1,8 +1,7 @@
 import { put, all } from 'redux-saga/effects';
-import axios from '../../shared/axios-weather';
-import { currentWeatherEndpoint } from '../../shared/urlCreator';
+import axios from '../../utils/axios-weather';
+import { currentWeatherEndpoint } from '../../utils/urlCreator';
 import * as actions from '../actions/rootActions';
-
 
 export function* fetchFavoritesSaga(action) {
     yield put(actions.fetchFavoritesStart());
@@ -13,11 +12,11 @@ export function* fetchFavoritesSaga(action) {
     for (let i = 0; i < results.length; i++) {
         if (typeof results[i] === "undefined" ) {
             checkErrors = true;
-        }
+        };
     };
     if (!checkErrors) {
         yield put(actions.fetchFavoritesSuccess(results));
-    }
+    };
 };
 
 function* fetchSingleFav(cityKey) {

@@ -4,32 +4,26 @@ import Favorite from '../../components/Favorite/Favorite';
 import * as actions from '../../store/actions/rootActions';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
-import axios from '../../shared/axios-weather';
-
+import axios from '../../utils/axios-weather';
 
 const Favorites = () => {
-
-
     const { fetchFavoritesLoading } = useSelector(state => state.favorites)
     const { favorites, fetchedFavorites } = useSelector(state => state.favorites);
     const favoritesCityKeys = [];
-    for (let i = 0; i < favorites.length; i++) {
-        favoritesCityKeys.push(favorites[i].cityKey);
-    };
     const dispatch = useDispatch();
     const onFetchFavoritesData = useCallback((favoritesCityKeys) => dispatch(actions.fetchFavorites(favoritesCityKeys)),[dispatch]);
     const onClearFetchedFavorites = useCallback(() => dispatch(actions.clearFetchedFavorites()),[dispatch]);
 
-    console.log('Favorites Render');
-    
+    for (let i = 0; i < favorites.length; i++) {
+        favoritesCityKeys.push(favorites[i].cityKey);
+    };
+
     useEffect(() => {
-            onFetchFavoritesData(favoritesCityKeys);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        onFetchFavoritesData(favoritesCityKeys);
     }, [onFetchFavoritesData]);
 
     useEffect(() => {
         return () => {
-
             onClearFetchedFavorites();
         };
     }, [onClearFetchedFavorites]);
@@ -46,7 +40,6 @@ const Favorites = () => {
                     cityKey={fav.cityKey} />
             })
         );
-        
     };
     
     if (favorites.length === 0) {
@@ -59,7 +52,7 @@ const Favorites = () => {
                 {favoriteList}
             </div>
         </div>
-    )
+    );
 };
 
 export default withErrorHandler(Favorites, axios);

@@ -1,7 +1,6 @@
 import * as actionTypes from './actionTypes';
 
 //Fatch autocomplete search
-    
 export const fetchSearchSuccess = (results) => {
     return {
         type: actionTypes.FETCH_SEARCH_SUCCESS,
@@ -31,7 +30,6 @@ export const updateSelectedCity = (cityName, cityKey) => {
 };
 
 //Fetch current weather 
-
 export const fetchCityData = ( cityKey ) => {
     return {
         type: actionTypes.FETCH_CITY_DATA,
@@ -53,9 +51,7 @@ export const fetchCityDataSuccess = (currentWeather, forecast) => {
     };
 };
 
-
 //Geo location 
-
 export const getGeoLocation = () => {
     return {
         type: actionTypes.GET_GEO_LOCATION

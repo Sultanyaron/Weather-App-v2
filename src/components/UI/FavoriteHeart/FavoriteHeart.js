@@ -1,10 +1,9 @@
 import React from 'react'; 
 import { useSelector, useDispatch } from 'react-redux';
-import { favoriteCheck } from '../../../shared/favoriteCheck';
 import * as actions from '../../../store/actions/rootActions';
 
-
 const FavoriteHeart = (props) => {
+    
     const { favorites } = useSelector(state => state.favorites);
     const dispatch = useDispatch();
     const onRemoveFavorite = (cityKey, favorites) => dispatch(actions.removeFavorite(cityKey, favorites));
@@ -18,6 +17,10 @@ const FavoriteHeart = (props) => {
         backgroundColor: colors.notSelected,
         height: props.height,
         width: props.width
+    };
+
+    const favoriteCheck = (selectedKey, favorites) => {
+        return favorites.some(element => element.cityKey === selectedKey);
     };
 
     if (favoriteCheck(props.cityKey, favorites)) {

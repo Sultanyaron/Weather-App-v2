@@ -4,8 +4,11 @@
     background-position: 50% 50%;
     min-height: 100vh;
 
-    @media screen and (min-width: 75em),
-           screen and (min-width: 37.5em) and (min-resolution: 192dpi){
+    @media screen and (max-width: 56.25em) {
+        background-image: url('./assets/images/bgImageMob.jpg');
+    }
+
+    @media screen and (min-width: 75em) and (min-resolution: 192dpi){
         background-image: url('./assets/images/bgImageDeskx2.jpg');
     }
 }

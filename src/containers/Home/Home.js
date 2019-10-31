@@ -2,11 +2,9 @@ import React from 'react';
 import SearchCity from '../../components/SearchCity/SearchCity';
 import CurrentCity from '../../components/CurrentCity/CurrentCity';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
-import axios from '../../shared/axios-weather';
+import axios from '../../utils/axios-weather';
 
-const Home = props => {
-    console.log('home Render');
-    
+const Home = props => {    
     return (
     <div className='home'>
         <SearchCity />
@@ -14,6 +12,5 @@ const Home = props => {
     </div>
     );
 };
-
 
 export default withErrorHandler(Home, axios);

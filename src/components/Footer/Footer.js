@@ -1,8 +1,6 @@
 import React from 'react';
 
-
 const Footer = () => {
-    console.log('Footer RENDER');
     return (
         <div className='footer'>
             <p className='footer__title'>Developed by Yaron Sultan - 2019</p>

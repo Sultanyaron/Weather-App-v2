@@ -14,8 +14,6 @@ const Modal = props => {
                     opacity: props.show ? '1' : '0'
                 }}>
                 {props.children}
-            
-
             </div>
         </React.Fragment>
     );

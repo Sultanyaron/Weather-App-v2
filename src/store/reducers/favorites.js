@@ -1,5 +1,5 @@
 import * as actionTypes from '../actions/actionTypes';
-
+import { updateObject } from '../../utils/updateObject';
 
 const initialState = {
     favorites: [],
@@ -7,31 +7,20 @@ const initialState = {
     fetchFavoritesLoading: true
 };
 
-
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.SET_FAVORITES: 
-            return { 
-                ...state,
-                favorites: action.newFavorites 
-            };
+            return updateObject(state, {favorites: action.newFavorites});
         case actionTypes.FETCH_FAVORITES_START:
-            return {
-                ...state,
-                fetchFavoritesLoading: true
-            }
+            return updateObject(state, {fetchFavoritesLoading: true});
         case actionTypes.FETCH_FAVORITES_SUCCESS:
-            return {
-                ...state,
+            return updateObject(state, {
                 fetchedFavorites: action.citysData,
-                fetchFavoritesLoading: false
-            };
+                fetchFavoritesLoading: false });
         case actionTypes.CLEAR_FETCHED_FAVORITES:
-            return {
-                ...state,
+            return updateObject(state, {
                 fetchedFavorites: [],
-                fetchFavoritesLoading: true
-            }
+                fetchFavoritesLoading: true });
         default: return state;
     };
 };

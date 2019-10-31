@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { validLetter } from '../../../shared/validEnglishLetters';
+import { validLetter } from '../../../utils/validEnglishLetters';
 import * as actions from '../../../store/actions/rootActions';
     
 const AutoCompleteInput = (props) => {
@@ -21,7 +21,6 @@ const AutoCompleteInput = (props) => {
         };
     },[inputVal, onSearchCityFetch]);
 
-    //for resetting the input when new city selected
     useEffect(() => {
         setInputVal('');
     }, [selectedCityKey])
@@ -47,7 +46,7 @@ const AutoCompleteInput = (props) => {
             onChange={inputChangedHandler}
             onKeyPress={validKeyHandler}
             value={inputVal} />
-    ) ;
+    );
 };
 
 export default AutoCompleteInput;
