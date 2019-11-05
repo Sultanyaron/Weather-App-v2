@@ -5,9 +5,7 @@ export const autoCompleteEndpoint = (q) => {
     return basePath + 'locations/v1/cities/autocomplete?apikey=' + apiKey + '&q=' + q;
 };
 
-export const currentWeatherEndpoint = (cityKey) => {
-    console.log(apiKey);
-    
+export const currentWeatherEndpoint = (cityKey) => {    
     return basePath + 'currentconditions/v1/' + cityKey + '?apikey=' + apiKey;
 };
 

@@ -36,6 +36,7 @@ const AutoCompleteInput = (props) => {
         if (!validLetter(event)){
             event.preventDefault()
         };
+        
     };
 
     return (
