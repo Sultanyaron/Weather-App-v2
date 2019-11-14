@@ -6,11 +6,17 @@ import FavoriteHeart from '../UI/FavoriteHeart/FavoriteHeart';
 import * as actions from '../../store/actions/rootActions';
 
 const Favorite = React.memo((props) => {
-    const { WeatherIcon, Temperature, WeatherText } = props.cityData.data[0];
+    const {
+        cityData,
+        cityName,
+        cityKey,
+        history,
+    } = props;
+    const {WeatherIcon,Temperature, WeatherText } = cityData.data[0];
     const { metric } = useSelector(state => state.userSettings);
     const icon = getIconPath(WeatherIcon);
     const dispatch = useDispatch();
-    const onSelectCity = () => dispatch(actions.updateSelectedCity(props.cityName, props.cityKey))
+    const onSelectCity = () => dispatch(actions.updateSelectedCity(cityName, cityKey))
     let temp = Math.round(Temperature.Metric.Value);
 
     if (!metric) {
@@ -19,17 +25,17 @@ const Favorite = React.memo((props) => {
     
     const redirectHandler = () => {
         onSelectCity();
-        props.history.push('/');
+        history.push('/');
     } ;
 
     return (
         <div className='favorites__item'>
             <FavoriteHeart 
-                cityKey={props.cityKey}
-                cityName={props.cityName}
+                cityKey={cityKey}
+                cityName={cityName}
                 height='4rem'
                 width='4rem' />
-            <p className='favorites__title' onClick={redirectHandler}>{props.cityName}</p>
+            <p className='favorites__title' onClick={redirectHandler}>{cityName}</p>
             <div className='favorites__details'>
                 <img className='favorites__icon' src={icon} alt={WeatherText} />
                 <div className='favorites__container'>
