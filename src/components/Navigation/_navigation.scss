@@ -1,84 +1,79 @@
 .navigation {
-    background-color: rgba(255, 255, 255, .7);
+  background-color: rgba(255, 255, 255, .7);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $color-primary;
+  z-index: 100;
+
+  @include respond(tab-small) {
+    flex-wrap: wrap;
+    justify-content: space-between; 
+  }
+
+  &__logo {
+    flex-shrink: 0;
+    padding: 1.5rem 3rem;
+    color: $color-primary;
+    font-size: 2rem;
+    @include respond(tab-small) {
+      order: -2;
+    }
+    @include respond(phone-small) {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__links {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid $color-primary;
-    z-index: 100;
+    @include respond(tab-small) {
+      width: 100%;
+    }
+    justify-content: center;
+  }
+  
+  &__link {
+    transition: all .2s;
+    color: $color-primary-light;
+  }
+
+  &__settings {
+    display: flex;
+    padding: 1.5rem 3rem;
 
     @include respond(tab-small) {
-        flex-wrap: wrap;
-        justify-content: space-between;
-        
+      order: -1;
+    }
+    @include respond(phone-small) {
+      padding: 1rem 1.5rem;
+    }
+  }
+
+  &__item {
+    font-size: 2.5rem;
+    font-weight: 500;
+    
+    padding: 1rem 2rem;
+    transition: all .2s;
+    color: yellow;
+    cursor: pointer;
+    &:not(:last-child) {
+      margin-right: 2.5rem;
     }
 
-    &__logo {
-        flex-shrink: 0;
-        padding: 1.5rem 3rem;
-        color: $color-primary;
-        font-size: 2rem;
-        @include respond(tab-small) {
-            order: -2;
-        }
-        @include respond(phone-small) {
-            font-size: 1.5rem;
-        }
-  
-     
-    }
-
-    &__links {
-        display: flex;
-        @include respond(tab-small) {
-            width: 100%;
-        }
-        justify-content: center;
+    &--active {
+      color: $color-primary-dark;
+      font-weight: bold;
+      text-shadow: .2rem .5rem rgba($color-grey-dark-2, .1);
+      border-bottom: 2px solid $color-primary-dark;
     }
     
-    &__link {
-        transition: all .2s;
-        color: $color-primary-light;
+    &:hover {
+      transform: translateY(-.2rem);
     }
 
-    &__settings {
-        display: flex;
-        padding: 1.5rem 3rem;
-
-        @include respond(tab-small) {
-            order: -1;
-        }
-        @include respond(phone-small) {
-            padding: 1rem 1.5rem;
-        }
+    &:active {
+      transform: translateY(-.1rem);
     }
-
-    &__item {
-        font-size: 2.5rem;
-        font-weight: 500;
-        
-        padding: 1rem 2rem;
-        transition: all .2s;
-        color: yellow;
-        cursor: pointer;
-        &:not(:last-child) {
-            margin-right: 2.5rem;
-        }
-
-        &--active {
-            color: $color-primary-dark;
-            font-weight: bold;
-            text-shadow: .2rem .5rem rgba($color-grey-dark-2, .1);
-            border-bottom: 2px solid $color-primary-dark;
-        }
-        
-        &:hover {
-            transform: translateY(-.2rem);
-        }
-
-        &:active {
-            transform: translateY(-.1rem);
-        }
-    }
-
-
+  }
 }

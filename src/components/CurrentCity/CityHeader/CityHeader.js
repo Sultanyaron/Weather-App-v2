@@ -1,15 +1,14 @@
-import React from "react";
-import FavoriteHeart from "../../UI/FavoriteHeart/FavoriteHeart";
-import { getIconPath } from "../../../utils/getIconPath";
+import React from 'react';
+import FavoriteHeart from '../../UI/FavoriteHeart/FavoriteHeart';
+import { getIconPath } from '../../../utils/getIconPath';
 
-const CityHeader = props => {
-  const {
-    cCityName,
-    cWeatherIcon,
-    cWeatherTemp,
-    cWeatherText,
-    cCityKey
-  } = props;
+const CityHeader = ({
+  cCityName,
+  cWeatherIcon,
+  cWeatherTemp,
+  cWeatherText,
+  cCityKey
+}) => {
   return (
     <header className="cityHeader">
       <div className="cityHeader__details">
@@ -18,7 +17,7 @@ const CityHeader = props => {
           <img
             className="cityHeader__icon"
             src={getIconPath(cWeatherIcon)}
-            alt={"dsd"}
+            alt={cWeatherText}
           />
           <div className="cityHeader__details-subContainer">
             <p className="cityHeader__details-temp">{cWeatherTemp}°</p>

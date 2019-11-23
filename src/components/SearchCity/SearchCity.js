@@ -3,14 +3,14 @@ import AutoCompleteInput from './AutCompleteInput/AutoCompleteInput';
 import SearchResults from './SearchResults/SearchResults';
 
 const SearchCity = () => {
-    return (
-        <div className='searchCity'>
-            <div className="searchCity-wrapper">
-                <AutoCompleteInput />
-                <SearchResults />
-            </div>
-        </div>
-    );
+  return (
+    <div className="searchCity">
+      <div className="searchCity-wrapper">
+        <AutoCompleteInput />
+        <SearchResults />
+      </div>
+    </div>
+  );
 };
 
 export default SearchCity;

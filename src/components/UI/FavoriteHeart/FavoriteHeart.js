@@ -1,47 +1,57 @@
-import React from 'react'; 
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as actions from '../../../store/actions/rootActions';
 
-const FavoriteHeart = (props) => {
-    
-    const { favorites } = useSelector(state => state.favorites);
-    const dispatch = useDispatch();
-    const onRemoveFavorite = (cityKey, favorites) => dispatch(actions.removeFavorite(cityKey, favorites));
-    const onAddFavorite = (cityKey, cityName, favorites) => dispatch(actions.addFavorite(cityKey, cityName, favorites));
-    const colors = {
-        selected: '#e31b23',
-        notSelected: '#777'
-    };
+const FavoriteHeart = ({
+  height,
+  width,
+  cityKey,
+  cityName
+}) => {
+  const { favorites } = useSelector((state) => state.favorites);
+  const dispatch = useDispatch();
 
-    const heartStyle = {
-        backgroundColor: colors.notSelected,
-        height: props.height,
-        width: props.width
-    };
+  const onRemoveFavorite = (selectedCityKey, curFavorites) => dispatch(
+    actions.removeFavorite(selectedCityKey, curFavorites)
+  );
+  const onAddFavorite = (selectedCityKey, selectedCityName, curFavorites) => dispatch(
+    actions.addFavorite(selectedCityKey, selectedCityName, curFavorites)
+  );
 
-    const favoriteCheck = (selectedKey, favorites) => {
-        return favorites.some(element => element.cityKey === selectedKey);
-    };
+  const colors = {
+    selected: '#e31b23',
+    notSelected: '#777'
+  };
 
-    if (favoriteCheck(props.cityKey, favorites)) {
-        heartStyle.backgroundColor = colors.selected
-    };
+  const heartStyle = {
+    backgroundColor: colors.notSelected,
+    height,
+    width
+  };
 
-    const favoriteHandler = (cityKey, cityName) => {
-        if (favoriteCheck(cityKey, favorites)) {
-            onRemoveFavorite(cityKey, favorites);
-        } else {
-            onAddFavorite(cityKey, cityName, favorites);
-        };
-    };
+  const favoriteCheck = (selectedKey, checkedFavorites) => {
+    return checkedFavorites.some((element) => element.cityKey === selectedKey);
+  };
 
-    return (
-            <div 
-                className="favoriteHeart"
-                style={heartStyle}
-                onClick={() => favoriteHandler(props.cityKey, props.cityName)}>
-            </div>
-    );
-};  
+  if (favoriteCheck(cityKey, favorites)) {
+    heartStyle.backgroundColor = colors.selected;
+  }
 
-export default FavoriteHeart
+  const favoriteHandler = (selectedCityKey, selectedCityName) => {
+    if (favoriteCheck(selectedCityKey, favorites)) {
+      onRemoveFavorite(selectedCityKey, favorites);
+    } else {
+      onAddFavorite(selectedCityKey, selectedCityName, favorites);
+    }
+  };
+
+  return (
+    <div
+      className="favoriteHeart"
+      style={heartStyle}
+      onClick={() => favoriteHandler(cityKey, cityName)}
+    />
+  );
+};
+
+export default FavoriteHeart;

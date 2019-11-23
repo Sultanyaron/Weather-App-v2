@@ -1,3 +1,3 @@
 export const getIconPath = (iconNumber) => {
-    return './icons/' + iconNumber + '-s.png';
+  return `./icons/${iconNumber}-s.png`;
 };
